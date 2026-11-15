@@ -46,6 +46,8 @@ El LLM solo propone SQL. Antes de ejecutar, la API exige una única sentencia `S
 pytest -q
 ```
 
+También se pueden usar `make generate`, `make load` y `make test` después de crear el entorno virtual.
+
 Los tests cubren la limpieza, la validación de SQL y el endpoint con el LLM simulado.
 
 ## Uso de IA
