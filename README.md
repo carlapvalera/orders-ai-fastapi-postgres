@@ -123,7 +123,7 @@ El proyecto soporta preguntas en español e inglés mediante un glosario de paí
 
 `generate_data.py` crea 1.225 filas deterministas: 1.200 pedidos base, 25 duplicados, 20 fechas inválidas y 20 importes vacíos. `load_data.py` convierte fechas e importes, normaliza texto, elimina duplicados y descarta filas irrecuperables.
 
-La carga produce `data/orders_clean.csv` y guarda en PostgreSQL la tabla `order_quality_summary`, con filas de entrada, errores detectados, duplicados eliminados y filas finales.
+La carga produce `data/orders_clean.csv` y guarda en PostgreSQL `order_quality_summary` (resumen) y `order_quality_issues` (fila original, tipo de error y valores recibidos) para que los descartes sean auditables.
 
 ## Vistas SQL
 
@@ -144,6 +144,7 @@ La API usa Fireworks AI mediante su endpoint compatible con OpenAI. El LLM solo 
 - rechaza operaciones peligrosas, comentarios y nombres cualificados;
 - aplica timeout y reintentos limitados al proveedor;
 - devuelve errores claros si falla el LLM, la validación o la ejecución;
+- documenta las respuestas `400`, `422`, `502` y `503` en Swagger;
 - registra errores sin escribir claves ni secretos en logs.
 
 La clave se lee de `FIREWORKS_API_KEY` y `.env` está excluido del repositorio.
@@ -165,6 +166,9 @@ Hay 8 tests: limpieza de datos, validación SQL, endpoint con LLM simulado, fall
 - Timeout y reintentos limitados para Fireworks.
 - Logging seguro de errores.
 - Tabla auditable `order_quality_summary`.
+- Tabla detallada `order_quality_issues` para filas rechazadas.
+- Health check que verifica la conexión real con PostgreSQL.
+- Validación explícita de `FIREWORKS_API_KEY` y `DATABASE_URL`.
 - Normalización de países y meses entre español e inglés.
 - Makefile con comandos de generación, carga y tests.
 - Historial de commits progresivos y repositorio público.

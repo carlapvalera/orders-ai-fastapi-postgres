@@ -38,3 +38,23 @@ def clean_orders(csv_path: str | Path) -> tuple[pd.DataFrame, dict[str, int]]:
     }
     return clean, stats
 
+
+def collect_quality_issues(csv_path: str | Path) -> pd.DataFrame:
+    """Return raw rows and reasons for every rejected quality issue."""
+    raw = pd.read_csv(csv_path, dtype=str).fillna("")
+    raw.columns = [column.strip().lower() for column in raw.columns]
+    frame = raw[EXPECTED_COLUMNS].copy()
+    parsed_dates = pd.to_datetime(frame["order_date"], errors="coerce")
+    parsed_amounts = pd.to_numeric(frame["amount"].str.replace(",", ".", regex=False), errors="coerce")
+    issue_rows: list[dict[str, object]] = []
+
+    masks = [
+        ("invalid_date", parsed_dates.isna()),
+        ("missing_amount", (frame["amount"] == "") | parsed_amounts.isna()),
+        ("duplicate", frame.duplicated(keep="first")),
+    ]
+    for issue_type, mask in masks:
+        for index in frame.index[mask]:
+            issue_rows.append({"row_number": int(index) + 2, "issue_type": issue_type, **frame.loc[index].to_dict()})
+    return pd.DataFrame(issue_rows, columns=["row_number", "issue_type", *EXPECTED_COLUMNS])
+

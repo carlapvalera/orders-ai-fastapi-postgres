@@ -25,13 +25,36 @@ class AskResponse(BaseModel):
     results: list[dict[str, object]]
 
 
+class ErrorResponse(BaseModel):
+    detail: str
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "ok"}
+    try:
+        with get_connection() as connection:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT 1")
+    except Exception as exc:
+        logger.exception("Health check database connection failed")
+        raise HTTPException(status_code=503, detail="Database unavailable") from exc
+    return {"status": "ok", "database": "ok"}
 
 
-@app.post("/ask", response_model=AskResponse)
+@app.post(
+    "/ask",
+    response_model=AskResponse,
+    responses={
+        400: {"model": ErrorResponse, "description": "Generated query could not be executed"},
+        422: {"model": ErrorResponse, "description": "Generated query failed validation"},
+        502: {"model": ErrorResponse, "description": "LLM provider error"},
+        503: {"model": ErrorResponse, "description": "Required configuration or database is unavailable"},
+    },
+)
 def ask_orders(request: QuestionRequest) -> AskResponse:
+    missing = [name for name in ("FIREWORKS_API_KEY", "DATABASE_URL") if not os.getenv(name)]
+    if missing:
+        raise HTTPException(status_code=503, detail=f"Missing configuration: {', '.join(missing)}")
     try:
         generated_sql = question_to_sql(request.question)
     except Exception as exc:
