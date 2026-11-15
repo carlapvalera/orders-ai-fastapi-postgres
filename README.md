@@ -10,6 +10,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 docker compose up -d db
+export DATABASE_URL=postgresql://orders_user:orders_password@localhost:5432/orders_db
 python scripts/generate_data.py
 python -m scripts.load_data
 uvicorn app.main:app --reload
