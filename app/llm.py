@@ -17,7 +17,7 @@ def question_to_sql(question: str) -> str:
         base_url="https://api.fireworks.ai/inference/v1",
     )
     response = client.chat.completions.create(
-        model=os.getenv("FIREWORKS_MODEL", "accounts/fireworks/models/llama-v3p1-8b-instruct"),
+        model=os.getenv("FIREWORKS_MODEL", "accounts/fireworks/models/llama-v3p3-70b-instruct"),
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": question},
