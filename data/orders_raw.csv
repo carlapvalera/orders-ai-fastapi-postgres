@@ -19,7 +19,7 @@ order_date,customer,country,product,amount,status
 2024-03-14,Customer 034,France,Phone,1866.30,cancelled
 2024-05-14,Customer 096,Portugal,Monitor,2246.09,pending
 2024-07-04,Customer 029,France,Keyboard,1241.39,completed
-not-a-date,Customer 020,France,Headphones,1064.07,completed
+2024-02-26,Customer 020,France,Headphones,1064.07,completed
 2024-07-16,Customer 049,Portugal,Monitor,1329.85,cancelled
 2024-01-06,Customer 088,Spain,Headphones,2213.70,completed
 2024-11-24,Customer 044,Spain,Tablet,1095.39,pending
@@ -29,7 +29,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-01-01,Customer 077,Germany,Monitor,63.40,completed
 2024-06-06,Customer 031,Spain,Phone,2196.85,completed
 2024-02-13,Customer 094,Italy,Laptop,2445.29,cancelled
-2024-03-05,Customer 017,Italy,Keyboard,425.34,cancelled
+not-a-date,Customer 017,Italy,Keyboard,425.34,cancelled
 2024-11-06,Customer 055,France,Keyboard,1891.83,completed
 2024-06-08,Customer 052,Germany,Monitor,2250.54,pending
 2024-03-02,Customer 032,France,Laptop,855.14,cancelled
@@ -39,7 +39,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-10-22,Customer 061,France,Monitor,2021.63,completed
 2024-02-18,Customer 013,Italy,Tablet,1067.59,pending
 2024-01-28,Customer 087,Spain,Laptop,1015.51,completed
-2024-02-25,Customer 032,France,Phone,,completed
+2024-02-25,Customer 032,France,Phone,1347.67,completed
 2024-08-04,Customer 024,Germany,Monitor,635.77,completed
 2024-08-14,Customer 071,Spain,Laptop,1635.58,cancelled
 2024-01-08,Customer 012,France,Phone,1024.94,pending
@@ -49,7 +49,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-01-30,Customer 075,Portugal,Laptop,1873.72,completed
 2024-01-26,Customer 075,Italy,Keyboard,2299.68,cancelled
 2024-03-21,Customer 008,Portugal,Laptop,2130.59,completed
-2024-10-31,Customer 009,France,Monitor,312.92,cancelled
+2024-10-31,Customer 009,France,Monitor,,cancelled
 2024-05-06,Customer 075,Portugal,Laptop,1554.16,pending
 2024-12-02,Customer 075,Portugal,Keyboard,801.18,completed
 2024-04-14,Customer 086,Germany,Phone,675.05,completed
@@ -69,7 +69,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-07-02,Customer 027,France,Headphones,270.44,cancelled
 2024-07-27,Customer 080,France,Phone,2163.55,completed
 2024-07-30,Customer 004,France,Headphones,2312.35,pending
-2024-12-08,Customer 095,France,Tablet,410.61,completed
+not-a-date,Customer 095,France,Tablet,410.61,completed
 2024-07-14,Customer 005,Italy,Phone,510.94,pending
 2024-06-28,Customer 040,France,Phone,73.81,completed
 2024-07-23,Customer 043,Germany,Laptop,2417.72,completed
@@ -94,7 +94,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-03-31,Customer 090,Portugal,Monitor,139.79,completed
 2024-03-03,Customer 059,France,Monitor,1673.93,cancelled
 2024-10-31,Customer 041,Italy,Keyboard,2040.29,cancelled
-2024-08-06,Customer 071,Italy,Phone,1862.98,pending
+2024-08-06,Customer 071,Italy,Phone,,pending
 2024-08-18,Customer 034,France,Headphones,704.12,cancelled
 2024-09-05,Customer 081,France,Tablet,1108.08,completed
 2024-04-30,Customer 035,Germany,Tablet,2234.17,completed
@@ -109,7 +109,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-10-30,Customer 073,Spain,Laptop,1612.23,completed
 2024-08-24,Customer 024,Spain,Tablet,957.07,completed
 2024-08-20,Customer 042,Germany,Monitor,706.47,pending
-2024-05-09,Customer 011,Italy,Laptop,1876.33,completed
+not-a-date,Customer 011,Italy,Laptop,1876.33,completed
 2024-06-28,Customer 029,Spain,Headphones,115.04,completed
 2024-05-06,Customer 026,Spain,Keyboard,393.67,completed
 2024-08-30,Customer 086,Spain,Keyboard,2370.18,pending
@@ -139,7 +139,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-12-28,Customer 069,France,Tablet,128.11,completed
 2024-10-10,Customer 038,France,Headphones,2173.13,pending
 2024-02-22,Customer 002,Portugal,Tablet,1181.45,pending
-2024-06-23,Customer 024,Spain,Tablet,2353.54,pending
+2024-06-23,Customer 024,Spain,Tablet,,pending
 2024-02-28,Customer 009,Italy,Monitor,199.09,completed
 2024-03-18,Customer 020,Portugal,Tablet,226.67,completed
 2024-03-01,Customer 072,Italy,Keyboard,1496.38,cancelled
@@ -149,7 +149,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-12-04,Customer 011,France,Phone,446.93,completed
 2024-03-21,Customer 001,Italy,Monitor,1728.09,pending
 2024-05-29,Customer 005,France,Tablet,1771.79,pending
-2024-02-06,Customer 088,France,Tablet,1972.75,cancelled
+not-a-date,Customer 088,France,Tablet,1972.75,cancelled
 2024-12-04,Customer 026,Italy,Laptop,1368.24,completed
 2024-05-16,Customer 019,Spain,Laptop,427.32,completed
 2024-10-31,Customer 096,Portugal,Tablet,1106.30,pending
@@ -184,12 +184,12 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-06-22,Customer 080,Italy,Headphones,214.58,completed
 2024-12-11,Customer 069,Italy,Tablet,1572.60,pending
 2024-10-04,Customer 005,Portugal,Laptop,598.40,completed
-2024-04-26,Customer 096,Spain,Monitor,2446.17,completed
+2024-04-26,Customer 096,Spain,Monitor,,completed
 2024-08-15,Customer 022,Germany,Laptop,129.29,completed
 2024-05-30,Customer 046,Germany,Monitor,376.74,cancelled
 2024-07-29,Customer 073,France,Phone,450.05,cancelled
 2024-07-14,Customer 080,France,Monitor,2283.38,completed
-2024-04-28,Customer 060,Germany,Monitor,649.49,completed
+not-a-date,Customer 060,Germany,Monitor,649.49,completed
 2024-08-26,Customer 037,Portugal,Phone,198.55,completed
 2024-10-27,Customer 039,Italy,Headphones,636.49,completed
 2024-04-11,Customer 050,Italy,Laptop,604.46,cancelled
@@ -229,7 +229,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-12-30,Customer 057,Spain,Laptop,815.45,completed
 2024-02-03,Customer 017,Germany,Keyboard,1588.20,cancelled
 2024-12-30,Customer 042,Italy,Keyboard,1333.43,pending
-2024-09-15,Customer 078,Italy,Laptop,1985.84,completed
+not-a-date,Customer 078,Italy,Laptop,,completed
 2024-12-01,Customer 084,Portugal,Headphones,2165.75,pending
 2024-08-19,Customer 030,Italy,Tablet,2071.14,pending
 2024-07-31,Customer 094,Spain,Tablet,1075.51,completed
@@ -249,7 +249,7 @@ not-a-date,Customer 020,France,Headphones,1064.07,completed
 2024-11-01,Customer 011,Spain,Phone,406.16,cancelled
 2024-01-26,Customer 087,Spain,Tablet,1116.14,pending
 2024-09-05,Customer 078,Italy,Monitor,693.82,cancelled
-not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
+2024-02-28,Customer 045,Italy,Laptop,718.87,cancelled
 2024-09-06,Customer 068,Germany,Laptop,562.99,cancelled
 2024-01-29,Customer 001,France,Tablet,2364.13,completed
 2024-05-10,Customer 038,Germany,Laptop,34.21,pending
@@ -269,12 +269,12 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-06-14,Customer 081,Germany,Phone,1107.81,pending
 2024-08-14,Customer 081,Germany,Tablet,1484.68,completed
 2024-09-16,Customer 010,Germany,Monitor,1138.01,completed
-2024-07-07,Customer 037,Spain,Headphones,2162.66,completed
+not-a-date,Customer 037,Spain,Headphones,2162.66,completed
 2024-11-10,Customer 077,Portugal,Monitor,1164.84,cancelled
 2024-01-22,Customer 058,Portugal,Headphones,482.78,cancelled
 2024-08-31,Customer 065,France,Laptop,1134.55,completed
 2024-02-13,Customer 065,France,Laptop,630.64,pending
-2024-08-12,Customer 068,Portugal,Keyboard,409.48,completed
+2024-08-12,Customer 068,Portugal,Keyboard,,completed
 2024-05-24,Customer 050,Italy,Tablet,1702.06,completed
 2024-11-19,Customer 083,Germany,Laptop,834.28,cancelled
 2024-12-13,Customer 050,Germany,Tablet,1813.48,cancelled
@@ -309,7 +309,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-09-25,Customer 047,Spain,Keyboard,1367.04,cancelled
 2024-10-10,Customer 003,Italy,Monitor,123.18,pending
 2024-07-10,Customer 033,Spain,Tablet,1974.47,completed
-2024-05-03,Customer 094,Spain,Keyboard,1841.94,completed
+not-a-date,Customer 094,Spain,Keyboard,1841.94,completed
 2024-03-09,Customer 006,Germany,Keyboard,856.29,completed
 2024-12-16,Customer 060,Italy,Headphones,467.96,completed
 2024-02-02,Customer 092,Italy,Laptop,744.20,completed
@@ -319,7 +319,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-08-11,Customer 052,Italy,Monitor,857.51,completed
 2024-09-11,Customer 089,Italy,Tablet,2311.91,cancelled
 2024-05-16,Customer 011,Italy,Laptop,1085.06,completed
-2024-10-06,Customer 038,Germany,Laptop,213.97,completed
+2024-10-06,Customer 038,Germany,Laptop,,completed
 2024-06-05,Customer 058,Portugal,Headphones,1073.90,pending
 2024-06-28,Customer 058,Spain,Headphones,2177.04,completed
 2024-11-10,Customer 056,Germany,Headphones,2450.37,completed
@@ -349,7 +349,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-11-05,Customer 044,Portugal,Laptop,2065.71,completed
 2024-02-11,Customer 006,Portugal,Tablet,1633.06,cancelled
 2024-08-01,Customer 080,Spain,Monitor,2224.16,cancelled
-2024-05-28,Customer 083,Germany,Monitor,623.52,pending
+not-a-date,Customer 083,Germany,Monitor,623.52,pending
 2024-06-01,Customer 059,Spain,Headphones,163.88,pending
 2024-07-31,Customer 062,Italy,Phone,860.38,completed
 2024-06-09,Customer 092,Germany,Headphones,2470.24,completed
@@ -364,7 +364,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-08-08,Customer 018,Germany,Headphones,923.96,pending
 2024-07-06,Customer 006,Italy,Laptop,1432.15,completed
 2024-07-04,Customer 071,Germany,Laptop,975.08,pending
-2024-10-08,Customer 036,Portugal,Headphones,1533.44,completed
+2024-10-08,Customer 036,Portugal,Headphones,,completed
 2024-02-19,Customer 051,Germany,Tablet,1401.21,completed
 2024-03-14,Customer 026,Portugal,Keyboard,1012.45,completed
 2024-01-24,Customer 005,France,Headphones,842.61,pending
@@ -389,7 +389,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-06-26,Customer 057,Germany,Headphones,1205.51,completed
 2024-10-02,Customer 035,Portugal,Headphones,689.98,completed
 2024-11-11,Customer 095,Portugal,Phone,617.51,cancelled
-2024-04-25,Customer 082,France,Laptop,263.99,completed
+not-a-date,Customer 082,France,Laptop,263.99,completed
 2024-08-29,Customer 013,France,Laptop,2411.83,completed
 2024-07-27,Customer 084,Italy,Monitor,1631.59,completed
 2024-06-13,Customer 037,Spain,Laptop,1635.96,completed
@@ -399,7 +399,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-05-25,Customer 059,Portugal,Keyboard,1242.37,completed
 2024-09-15,Customer 060,Germany,Phone,2024.90,completed
 2024-03-24,Customer 094,Italy,Headphones,654.30,completed
-2024-01-08,Customer 095,Germany,Tablet,,completed
+2024-01-08,Customer 095,Germany,Tablet,1425.94,completed
 2024-03-30,Customer 079,Italy,Monitor,1295.47,completed
 2024-07-24,Customer 086,Spain,Phone,2454.49,pending
 2024-06-14,Customer 032,Spain,Tablet,968.18,pending
@@ -409,7 +409,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-12-19,Customer 016,Germany,Tablet,1542.34,completed
 2024-03-09,Customer 062,France,Monitor,1873.12,cancelled
 2024-07-10,Customer 054,Portugal,Monitor,1897.02,completed
-2024-05-06,Customer 088,Portugal,Laptop,1320.88,cancelled
+2024-05-06,Customer 088,Portugal,Laptop,,cancelled
 2024-12-26,Customer 047,Spain,Keyboard,293.84,cancelled
 2024-09-15,Customer 026,Portugal,Keyboard,387.38,completed
 2024-09-23,Customer 057,Spain,Headphones,525.42,cancelled
@@ -429,7 +429,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-11-10,Customer 099,Spain,Phone,527.11,completed
 2024-10-31,Customer 005,Italy,Keyboard,1684.98,completed
 2024-05-05,Customer 095,Spain,Monitor,1105.82,cancelled
-2024-04-21,Customer 097,Spain,Phone,1267.18,completed
+not-a-date,Customer 097,Spain,Phone,1267.18,completed
 2024-04-29,Customer 094,Portugal,Tablet,1450.02,completed
 2024-05-01,Customer 039,France,Headphones,1310.31,pending
 2024-06-02,Customer 036,Spain,Keyboard,2372.07,completed
@@ -454,7 +454,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-05-05,Customer 064,Portugal,Headphones,2359.51,completed
 2024-05-11,Customer 098,Italy,Headphones,1609.61,pending
 2024-08-23,Customer 022,Germany,Phone,362.80,cancelled
-2024-09-07,Customer 024,Portugal,Headphones,2393.73,cancelled
+2024-09-07,Customer 024,Portugal,Headphones,,cancelled
 2024-01-18,Customer 010,Spain,Laptop,1039.79,completed
 2024-02-04,Customer 091,France,Laptop,558.52,pending
 2024-07-10,Customer 008,Portugal,Headphones,1671.89,cancelled
@@ -469,7 +469,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-11-22,Customer 002,France,Laptop,1257.15,pending
 2024-11-26,Customer 043,Portugal,Laptop,2238.56,completed
 2024-04-27,Customer 028,Portugal,Monitor,688.67,completed
-2024-12-16,Customer 036,Portugal,Keyboard,1650.40,completed
+not-a-date,Customer 036,Portugal,Keyboard,1650.40,completed
 2024-06-10,Customer 003,France,Keyboard,373.32,pending
 2024-02-09,Customer 039,France,Keyboard,612.57,pending
 2024-12-12,Customer 070,Germany,Monitor,1892.69,completed
@@ -499,7 +499,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-04-02,Customer 088,Portugal,Laptop,2383.22,pending
 2024-12-28,Customer 027,Italy,Tablet,2080.74,completed
 2024-07-28,Customer 087,Italy,Phone,1588.84,completed
-2024-05-09,Customer 085,France,Headphones,1066.47,pending
+2024-05-09,Customer 085,France,Headphones,,pending
 2024-02-07,Customer 058,Portugal,Monitor,1461.88,cancelled
 2024-09-16,Customer 089,Italy,Keyboard,106.36,completed
 2024-12-25,Customer 069,Portugal,Headphones,2287.29,completed
@@ -509,7 +509,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-10-12,Customer 075,Portugal,Phone,1122.76,pending
 2024-08-25,Customer 099,Portugal,Headphones,1258.66,completed
 2024-01-13,Customer 062,Spain,Tablet,1048.70,completed
-2024-02-29,Customer 094,France,Tablet,790.05,pending
+not-a-date,Customer 094,France,Tablet,790.05,pending
 2024-04-15,Customer 067,Italy,Tablet,1198.26,pending
 2024-12-22,Customer 058,Germany,Laptop,761.16,completed
 2024-01-12,Customer 044,Spain,Headphones,2003.12,completed
@@ -544,12 +544,12 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-12-25,Customer 017,France,Phone,1782.82,completed
 2024-12-12,Customer 051,Italy,Phone,1449.90,completed
 2024-11-17,Customer 054,Italy,Monitor,202.66,completed
-2024-07-25,Customer 066,Germany,Headphones,2341.80,completed
+2024-07-25,Customer 066,Germany,Headphones,,completed
 2024-08-20,Customer 063,Germany,Keyboard,21.15,completed
 2024-08-22,Customer 082,Germany,Laptop,1992.26,pending
 2024-04-21,Customer 055,France,Monitor,682.31,completed
 2024-06-21,Customer 071,Portugal,Phone,1421.86,pending
-2024-06-24,Customer 088,Spain,Laptop,262.44,pending
+not-a-date,Customer 088,Spain,Laptop,262.44,pending
 2024-01-09,Customer 016,France,Monitor,1149.45,pending
 2024-04-13,Customer 089,France,Headphones,765.14,completed
 2024-02-17,Customer 084,Germany,Tablet,219.82,completed
@@ -589,7 +589,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-10-20,Customer 087,Spain,Phone,1855.84,completed
 2024-01-23,Customer 002,France,Laptop,1187.34,pending
 2024-03-17,Customer 023,Spain,Keyboard,2010.74,pending
-2024-04-24,Customer 042,France,Monitor,2290.90,completed
+not-a-date,Customer 042,France,Monitor,,completed
 2024-05-18,Customer 010,Portugal,Tablet,311.71,completed
 2024-04-01,Customer 029,Portugal,Laptop,2385.89,completed
 2024-08-26,Customer 037,Germany,Tablet,229.67,pending
@@ -629,12 +629,12 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-01-30,Customer 061,Portugal,Tablet,1920.60,completed
 2024-03-22,Customer 013,France,Headphones,614.26,cancelled
 2024-01-29,Customer 098,France,Keyboard,2118.57,pending
-2024-06-30,Customer 023,France,Phone,1487.41,completed
+not-a-date,Customer 023,France,Phone,1487.41,completed
 2024-10-29,Customer 004,Germany,Keyboard,1415.56,cancelled
 2024-04-06,Customer 064,Portugal,Tablet,451.26,completed
 2024-02-16,Customer 008,France,Keyboard,558.74,cancelled
 2024-09-01,Customer 001,Germany,Keyboard,515.64,completed
-2024-06-23,Customer 092,France,Tablet,163.00,completed
+2024-06-23,Customer 092,France,Tablet,,completed
 2024-10-27,Customer 091,France,Laptop,2118.51,completed
 2024-02-07,Customer 048,Italy,Keyboard,266.06,completed
 2024-06-14,Customer 018,France,Headphones,2372.50,pending
@@ -669,7 +669,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-10-01,Customer 088,Italy,Keyboard,2205.91,pending
 2024-06-02,Customer 011,Italy,Headphones,101.30,cancelled
 2024-09-21,Customer 074,Portugal,Phone,313.90,pending
-2024-03-29,Customer 022,France,Phone,328.57,pending
+not-a-date,Customer 022,France,Phone,328.57,pending
 2024-02-10,Customer 088,Italy,Phone,2493.21,completed
 2024-10-31,Customer 034,Germany,Headphones,2286.72,completed
 2024-02-14,Customer 050,Portugal,Monitor,1386.85,completed
@@ -679,7 +679,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-05-26,Customer 069,Germany,Monitor,671.38,pending
 2024-10-19,Customer 078,Italy,Laptop,442.92,pending
 2024-03-14,Customer 080,Portugal,Headphones,1738.75,completed
-2024-07-21,Customer 043,France,Laptop,1868.19,completed
+2024-07-21,Customer 043,France,Laptop,,completed
 2024-07-09,Customer 003,Germany,Tablet,787.71,pending
 2024-12-22,Customer 088,Spain,Phone,348.95,pending
 2024-06-13,Customer 035,Italy,Keyboard,1619.20,completed
@@ -699,7 +699,7 @@ not-a-date,Customer 045,Italy,Laptop,718.87,cancelled
 2024-08-04,Customer 049,Germany,Monitor,641.22,pending
 2024-06-03,Customer 087,Portugal,Keyboard,1001.92,completed
 2024-01-04,Customer 066,Germany,Keyboard,1623.65,cancelled
-not-a-date,Customer 039,Spain,Monitor,173.64,completed
+2024-05-24,Customer 039,Spain,Monitor,173.64,completed
 2024-11-23,Customer 042,Germany,Tablet,1645.46,completed
 2024-04-06,Customer 020,Portugal,Phone,2250.72,cancelled
 2024-07-25,Customer 085,Germany,Headphones,362.72,completed
@@ -709,7 +709,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-12-09,Customer 046,Portugal,Tablet,2115.87,cancelled
 2024-04-02,Customer 038,Spain,Monitor,332.94,completed
 2024-10-13,Customer 098,France,Headphones,2250.48,completed
-2024-04-23,Customer 046,France,Headphones,2180.51,pending
+not-a-date,Customer 046,France,Headphones,2180.51,pending
 2024-06-18,Customer 048,Germany,Keyboard,745.72,completed
 2024-08-28,Customer 007,Portugal,Keyboard,2361.59,completed
 2024-08-29,Customer 025,Portugal,Laptop,2170.73,pending
@@ -724,7 +724,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-11-16,Customer 094,France,Phone,1738.41,completed
 2024-06-08,Customer 017,Spain,Monitor,1265.79,completed
 2024-03-26,Customer 009,Spain,Tablet,2371.93,pending
-2024-09-23,Customer 077,Portugal,Tablet,1092.66,completed
+2024-09-23,Customer 077,Portugal,Tablet,,completed
 2024-06-24,Customer 063,Germany,Phone,424.74,pending
 2024-01-10,Customer 030,France,Headphones,2462.43,completed
 2024-01-12,Customer 076,Portugal,Phone,321.06,completed
@@ -749,7 +749,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-05-19,Customer 050,Italy,Monitor,1627.38,completed
 2024-02-27,Customer 017,Spain,Phone,272.73,cancelled
 2024-09-04,Customer 073,Italy,Phone,1534.14,completed
-2024-11-09,Customer 004,France,Monitor,2302.19,completed
+not-a-date,Customer 004,France,Monitor,2302.19,completed
 2024-07-29,Customer 057,Spain,Laptop,665.11,completed
 2024-01-07,Customer 091,Portugal,Headphones,1447.97,cancelled
 2024-04-24,Customer 086,Germany,Keyboard,1314.91,cancelled
@@ -769,7 +769,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-10-07,Customer 067,Germany,Headphones,279.21,completed
 2024-09-09,Customer 018,Italy,Laptop,646.91,completed
 2024-04-06,Customer 016,Italy,Phone,1150.76,completed
-2024-06-22,Customer 014,Italy,Laptop,2317.67,cancelled
+2024-06-22,Customer 014,Italy,Laptop,,cancelled
 2024-03-04,Customer 099,Italy,Monitor,1651.26,cancelled
 2024-03-09,Customer 064,Spain,Keyboard,1844.49,cancelled
 2024-08-09,Customer 075,Italy,Keyboard,1955.99,completed
@@ -789,7 +789,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-04-14,Customer 097,Portugal,Laptop,906.33,pending
 2024-02-22,Customer 079,Portugal,Phone,1859.90,cancelled
 2024-07-18,Customer 031,Portugal,Headphones,729.78,completed
-2024-07-14,Customer 050,Italy,Headphones,791.95,cancelled
+not-a-date,Customer 050,Italy,Headphones,791.95,cancelled
 2024-01-28,Customer 002,Germany,Phone,1557.10,pending
 2024-04-25,Customer 082,Germany,Keyboard,1373.34,cancelled
 2024-04-10,Customer 100,France,Tablet,1130.31,completed
@@ -814,7 +814,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-02-14,Customer 010,Spain,Phone,1988.62,cancelled
 2024-02-06,Customer 074,France,Tablet,1027.97,pending
 2024-11-18,Customer 052,Italy,Tablet,56.97,completed
-2024-09-30,Customer 001,Portugal,Laptop,1893.56,cancelled
+2024-09-30,Customer 001,Portugal,Laptop,,cancelled
 2024-01-24,Customer 090,Spain,Tablet,2321.20,completed
 2024-05-28,Customer 088,Germany,Keyboard,229.97,pending
 2024-07-14,Customer 051,Spain,Monitor,403.46,completed
@@ -859,7 +859,7 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-01-29,Customer 022,Germany,Phone,1298.85,pending
 2024-11-02,Customer 073,Spain,Headphones,1824.02,completed
 2024-02-13,Customer 028,Italy,Keyboard,2482.05,pending
-2024-03-28,Customer 029,Italy,Keyboard,369.64,cancelled
+2024-03-28,Customer 029,Italy,Keyboard,,cancelled
 2024-04-03,Customer 080,Portugal,Tablet,431.79,completed
 2024-08-20,Customer 077,Portugal,Laptop,586.09,pending
 2024-03-08,Customer 014,Spain,Phone,1313.94,cancelled
@@ -899,12 +899,12 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-01-15,Customer 062,Spain,Tablet,182.87,completed
 2024-12-12,Customer 090,France,Tablet,1039.88,completed
 2024-09-21,Customer 069,Spain,Headphones,2082.96,completed
-2024-05-27,Customer 012,Italy,Headphones,,completed
+2024-05-27,Customer 012,Italy,Headphones,1875.74,completed
 2024-02-08,Customer 071,France,Monitor,794.97,completed
 2024-10-20,Customer 035,France,Headphones,1712.52,completed
 2024-09-12,Customer 095,France,Phone,1842.54,completed
 2024-04-15,Customer 030,France,Phone,2093.29,completed
-2024-03-20,Customer 100,Spain,Laptop,2301.67,pending
+2024-03-20,Customer 100,Spain,Laptop,,pending
 2024-11-10,Customer 001,Portugal,Laptop,2122.31,completed
 2024-11-13,Customer 041,Italy,Keyboard,2173.89,pending
 2024-04-03,Customer 098,Portugal,Tablet,1003.73,cancelled
@@ -1211,3 +1211,16 @@ not-a-date,Customer 039,Spain,Monitor,173.64,completed
 2024-07-04,Customer 074,France,Headphones,187.84,completed
 2024-05-28,Customer 011,France,Laptop,959.61,pending
 2024-11-21,Customer 047,France,Tablet,897.85,completed
+2024-12-25,Customer 088,Spain,Keyboard,1592.92,cancelled
+2024-05-05,Customer 021,Italy,Monitor,685.82,cancelled
+2024-04-22,Customer 088,Germany,Laptop,584.18,completed
+2024-06-10,Customer 052,Germany,Laptop,539.29,cancelled
+2024-06-10,Customer 028,Italy,Monitor,2213.44,pending
+2024-03-14,Customer 034,France,Phone,1866.30,cancelled
+2024-05-14,Customer 096,Portugal,Monitor,2246.09,pending
+2024-07-04,Customer 029,France,Keyboard,1241.39,completed
+2024-02-26,Customer 020,France,Headphones,1064.07,completed
+2024-07-16,Customer 049,Portugal,Monitor,1329.85,cancelled
+2024-01-06,Customer 088,Spain,Headphones,2213.70,completed
+2024-11-24,Customer 044,Spain,Tablet,1095.39,pending
+2024-01-02,Customer 093,Germany,Keyboard,1908.48,cancelled

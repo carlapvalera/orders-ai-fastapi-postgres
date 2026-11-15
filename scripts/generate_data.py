@@ -30,10 +30,10 @@ def generate_orders(output: str | Path = "data/orders_raw.csv", rows: int = 1200
         )
 
     # Intentional quality issues: duplicated rows, malformed dates and empty amounts.
-    records.extend(records[:12])
-    for index in (20, 250, 700):
+    records.extend(records[:25])
+    for index in range(30, 830, 40):
         records[index]["order_date"] = "not-a-date"
-    for index in (40, 400, 900):
+    for index in range(50, 950, 45):
         records[index]["amount"] = ""
 
     with output.open("w", newline="", encoding="utf-8") as handle:
