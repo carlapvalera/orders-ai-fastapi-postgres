@@ -17,7 +17,7 @@ Edita `.env` y configura tus valores. Como mínimo:
 
 ```env
 FIREWORKS_API_KEY=tu_clave_de_Fireworks
-FIREWORKS_MODEL=accounts/fireworks/models/llama-v3p3-70b-instruct
+FIREWORKS_MODEL=accounts/fireworks/models/glm-5p3-flash
 DATABASE_URL=postgresql://orders_user:orders_password@localhost:5433/orders_db
 ```
 
