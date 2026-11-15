@@ -1,4 +1,5 @@
 import os
+import logging
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -11,6 +12,7 @@ from app.sql_validation import validate_read_only_sql
 load_dotenv()
 
 app = FastAPI(title="Orders AI API", version="1.0.0")
+logger = logging.getLogger(__name__)
 
 
 class QuestionRequest(BaseModel):
@@ -33,11 +35,13 @@ def ask_orders(request: QuestionRequest) -> AskResponse:
     try:
         generated_sql = question_to_sql(request.question)
     except Exception as exc:
+        logger.exception("LLM request failed")
         raise HTTPException(status_code=502, detail=f"LLM error: {exc}") from exc
 
     try:
         safe_sql = validate_read_only_sql(generated_sql)
     except ValueError as exc:
+        logger.warning("Generated SQL rejected: %s", exc)
         raise HTTPException(status_code=422, detail=f"Invalid generated query: {exc}") from exc
 
     try:
@@ -48,6 +52,7 @@ def ask_orders(request: QuestionRequest) -> AskResponse:
                 result = [dict(zip(columns, row)) for row in cursor.fetchall()]
             connection.commit()
     except Exception as exc:
+        logger.exception("Query execution failed")
         raise HTTPException(status_code=400, detail=f"Query execution error: {exc}") from exc
     return AskResponse(question=request.question, sql=safe_sql, results=result)
 
