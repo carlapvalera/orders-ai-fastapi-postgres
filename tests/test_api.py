@@ -7,6 +7,12 @@ from fastapi.testclient import TestClient
 from app.main import app
 
 
+@pytest.fixture(autouse=True)
+def configured_test_environment(monkeypatch):
+    monkeypatch.setenv("FIREWORKS_API_KEY", "test-key")
+    monkeypatch.setenv("DATABASE_URL", "postgresql://test:test@localhost:5432/test")
+
+
 def test_ask_endpoint_executes_mocked_llm_query():
     class Cursor:
         description = [type("Description", (), {"name": "country"})(), type("Description", (), {"name": "total_sales"})()]
