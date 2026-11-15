@@ -1,6 +1,6 @@
 CREATE VIEW sales_by_month_country AS
 SELECT
-    DATE_TRUNC('month', order_date)::DATE AS month,
+    TO_CHAR(DATE_TRUNC('month', order_date), 'YYYY-MM') AS month,
     country,
     ROUND(SUM(amount), 2) AS total_sales,
     COUNT(*) AS order_count

@@ -11,7 +11,7 @@ def generate_orders(output: str | Path = "data/orders_raw.csv", rows: int = 1200
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     customers = [f"Customer {number:03d}" for number in range(1, 101)]
-    countries = ["Spain", "France", "Germany", "Italy", "Portugal"]
+    countries = ["España", "Francia", "Alemania", "Italia", "Portugal"]
     products = ["Laptop", "Phone", "Tablet", "Monitor", "Keyboard", "Headphones"]
     statuses = ["completed", "completed", "completed", "pending", "cancelled"]
     start = date(2024, 1, 1)
@@ -37,7 +37,11 @@ def generate_orders(output: str | Path = "data/orders_raw.csv", rows: int = 1200
         records[index]["amount"] = ""
 
     with output.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["order_date", "customer", "country", "product", "amount", "status"])
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["order_date", "customer", "country", "product", "amount", "status"],
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(records)
 

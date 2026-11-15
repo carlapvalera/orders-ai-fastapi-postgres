@@ -6,7 +6,7 @@ from openai import OpenAI
 SYSTEM_PROMPT = """You translate Spanish or English questions about orders into PostgreSQL SQL.
 Return only one SQL SELECT statement, with no Markdown and no explanation.
 You may query only sales_by_month_country and top_customers.
-sales_by_month_country columns: month, country, total_sales, order_count.
+sales_by_month_country columns: month (text in YYYY-MM format), country, total_sales, order_count.
 top_customers columns: customer, total_spend, order_count.
 """
 
