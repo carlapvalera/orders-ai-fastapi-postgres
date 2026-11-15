@@ -15,6 +15,8 @@ def question_to_sql(question: str) -> str:
     client = OpenAI(
         api_key=os.environ["FIREWORKS_API_KEY"],
         base_url="https://api.fireworks.ai/inference/v1",
+        timeout=15.0,
+        max_retries=1,
     )
     response = client.chat.completions.create(
         model=os.getenv("FIREWORKS_MODEL", "accounts/fireworks/models/glm-5p3-flash"),
