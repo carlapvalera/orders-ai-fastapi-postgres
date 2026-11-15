@@ -16,6 +16,8 @@ python -m scripts.load_data
 uvicorn app.main:app --reload
 ```
 
+La cadena `DATABASE_URL` anterior usa credenciales locales de desarrollo definidas en `docker-compose.yml`; no es una clave real ni una credencial de producción.
+
 La API queda disponible en `http://localhost:8000/docs`. Ejemplo:
 
 ```bash
