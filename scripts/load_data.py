@@ -28,20 +28,21 @@ def load_orders(input_path: str | Path = "data/orders_raw.csv") -> dict[str, int
             )
             cursor.execute("""CREATE TABLE order_quality_summary (
                 metric TEXT PRIMARY KEY,
-                value INTEGER NOT NULL
+                value NUMERIC(12, 2) NOT NULL
             )""")
             cursor.executemany(
                 "INSERT INTO order_quality_summary (metric, value) VALUES (%s, %s)",
                 [(metric, value) for metric, value in stats.items()],
             )
             cursor.execute("""CREATE TABLE order_quality_issues (
-                row_number INTEGER NOT NULL,
+                original_row_number INTEGER NOT NULL,
                 issue_type TEXT NOT NULL,
-                order_date TEXT, customer TEXT, country TEXT,
-                product TEXT, amount TEXT, status TEXT
+                raw_order_date TEXT, customer TEXT, country TEXT,
+                product TEXT, raw_amount TEXT, status TEXT,
+                detected_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
             )""")
             cursor.executemany(
-                "INSERT INTO order_quality_issues (row_number, issue_type, order_date, customer, country, product, amount, status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                "INSERT INTO order_quality_issues (original_row_number, issue_type, raw_order_date, customer, country, product, raw_amount, status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
                 issues.itertuples(index=False, name=None),
             )
             cursor.execute(Path("sql/views.sql").read_text(encoding="utf-8"))

@@ -121,9 +121,21 @@ El proyecto soporta preguntas en español e inglés mediante un glosario de paí
 
 ## Datos y limpieza
 
-`generate_data.py` crea 1.225 filas deterministas: 1.200 pedidos base, 25 duplicados, 20 fechas inválidas y 20 importes vacíos. `load_data.py` convierte fechas e importes, normaliza texto, elimina duplicados y descarta filas irrecuperables.
+`generate_data.py` crea 1.225 filas deterministas: 1.200 pedidos base, 25 duplicados, 20 fechas inválidas y 20 importes vacíos. Los datos base tienen clientes con distinta propensión de compra, precios por producto, pesos por país, estacionalidad mensual y proporciones documentadas de estados (`completed` 65 %, `pending` 25 %, `cancelled` 10 %). `load_data.py` convierte fechas e importes, normaliza texto, elimina duplicados y descarta filas irrecuperables.
 
-La carga produce `data/orders_clean.csv` y guarda en PostgreSQL `order_quality_summary` (resumen) y `order_quality_issues` (fila original, tipo de error y valores recibidos) para que los descartes sean auditables.
+La métrica de ventas es `SUM(amount)` excluyendo pedidos `cancelled`. Los pedidos `pending` se mantienen porque representan ventas registradas todavía no canceladas. La carga produce `data/orders_clean.csv` y guarda en PostgreSQL `order_quality_summary` (resumen) y `order_quality_issues` (fila original, tipo de error, valores crudos y `detected_at`) para que los descartes sean auditables.
+
+Con la semilla actual, el informe de calidad esperado es:
+
+```text
+Filas iniciales: 1.225
+Duplicados eliminados: 25
+Fechas inválidas: 20
+Importes vacíos: 20
+Filas rechazadas: 63
+Filas limpias: 1.162
+Porcentaje rechazado: 5,14 %
+```
 
 ## Vistas SQL
 
@@ -166,7 +178,9 @@ Hay 8 tests: limpieza de datos, validación SQL, endpoint con LLM simulado, fall
 - Timeout y reintentos limitados para Fireworks.
 - Logging seguro de errores.
 - Tabla auditable `order_quality_summary`.
-- Tabla detallada `order_quality_issues` para filas rechazadas.
+- Tabla detallada `order_quality_issues` para filas rechazadas, con valores crudos y timestamp.
+- Importes convertidos a `Decimal` y almacenados como `NUMERIC(12, 2)`.
+- Tests que comprueban que las vistas coinciden con los totales de la tabla limpia.
 - Health check que verifica la conexión real con PostgreSQL.
 - Validación explícita de `FIREWORKS_API_KEY` y `DATABASE_URL`.
 - Normalización de países y meses entre español e inglés.

@@ -20,8 +20,13 @@ def test_postgres_load_creates_expected_views():
             assert cursor.fetchone()[0] > 0
             cursor.execute("SELECT COUNT(*) FROM top_customers")
             assert cursor.fetchone()[0] == 10
+            cursor.execute("SELECT SUM(total_sales) FROM sales_by_month_country")
+            view_total = cursor.fetchone()[0]
+            cursor.execute("SELECT SUM(amount) FROM orders WHERE status <> 'cancelled'")
+            order_total = cursor.fetchone()[0]
+            assert view_total == order_total
             cursor.execute("SELECT COUNT(*) FROM order_quality_summary")
-            assert cursor.fetchone()[0] == 5
+            assert cursor.fetchone()[0] == 7
             cursor.execute("SELECT COUNT(*) FROM order_quality_issues")
             assert cursor.fetchone()[0] >= 65
 
