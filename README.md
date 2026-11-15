@@ -11,7 +11,7 @@ pip install -r requirements.txt
 cp .env.example .env
 docker compose up -d db
 python scripts/generate_data.py
-python scripts/load_data.py
+python -m scripts.load_data
 uvicorn app.main:app --reload
 ```
 
