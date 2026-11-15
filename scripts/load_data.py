@@ -1,7 +1,11 @@
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 from app.cleaning import clean_orders
 from app.database import get_connection
+
+load_dotenv()
 
 
 def load_orders(input_path: str | Path = "data/orders_raw.csv") -> dict[str, int]:
