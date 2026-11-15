@@ -1,11 +1,13 @@
 # Orders AI API
 
+Requiere Python 3.14.
+
 Prueba técnica: generación y limpieza de pedidos, vistas analíticas y una API FastAPI que convierte preguntas en lenguaje natural a consultas SQL mediante un LLM.
 
 ## Ejecución
 
 ```bash
-python -m venv .venv
+python3.14 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
