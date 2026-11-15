@@ -10,13 +10,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 docker compose up -d db
-export DATABASE_URL=postgresql://orders_user:orders_password@localhost:5432/orders_db
 python scripts/generate_data.py
 python -m scripts.load_data
 uvicorn app.main:app --reload
 ```
 
-La cadena `DATABASE_URL` anterior usa credenciales locales de desarrollo definidas en `docker-compose.yml`; no es una clave real ni una credencial de producción.
+`DATABASE_URL` está incluida en `.env.example` para conectar con el PostgreSQL local de Docker. Usa credenciales locales de desarrollo definidas en `docker-compose.yml`; no es una clave real ni una credencial de producción.
 
 La API queda disponible en `http://localhost:8000/docs`. Ejemplo:
 
