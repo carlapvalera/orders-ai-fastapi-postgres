@@ -17,13 +17,19 @@ class QuestionRequest(BaseModel):
     question: str = Field(min_length=3, max_length=500)
 
 
+class AskResponse(BaseModel):
+    question: str
+    sql: str
+    results: list[dict[str, object]]
+
+
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.post("/ask")
-def ask_orders(request: QuestionRequest) -> dict[str, object]:
+@app.post("/ask", response_model=AskResponse)
+def ask_orders(request: QuestionRequest) -> AskResponse:
     try:
         generated_sql = question_to_sql(request.question)
     except Exception as exc:
@@ -43,5 +49,5 @@ def ask_orders(request: QuestionRequest) -> dict[str, object]:
             connection.commit()
     except Exception as exc:
         raise HTTPException(status_code=400, detail=f"Query execution error: {exc}") from exc
-    return {"question": request.question, "sql": safe_sql, "results": result}
+    return AskResponse(question=request.question, sql=safe_sql, results=result)
 
