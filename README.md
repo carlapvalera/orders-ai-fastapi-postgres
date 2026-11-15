@@ -64,6 +64,8 @@ Ambos servicios deben aparecer como `running`; PostgreSQL debe aparecer como `he
 
 PostgreSQL queda publicado en el puerto `5433` del equipo y usa el puerto `5432` dentro de la red Docker. La API queda publicada en el puerto `8000`.
 
+Si esos puertos están ocupados, cambia `POSTGRES_PORT` y `API_PORT` en `.env` antes de ejecutar Compose. La `DATABASE_URL` solo necesita cambiarse para desarrollo local fuera de Docker; dentro de Compose la API usa el nombre interno `db`.
+
 La respuesta esperada para la pregunta de ejemplo tiene esta forma:
 
 ```json
