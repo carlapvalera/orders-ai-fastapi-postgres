@@ -11,13 +11,46 @@ python3.14 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
+```
+
+Edita `.env` y configura tus valores. Como mínimo:
+
+```env
+FIREWORKS_API_KEY=tu_clave_de_Fireworks
+FIREWORKS_MODEL=accounts/fireworks/models/llama-v3p1-8b-instruct
+DATABASE_URL=postgresql://orders_user:orders_password@localhost:5433/orders_db
+```
+
+La cadena anterior usa credenciales locales definidas en `docker-compose.yml`; no es una clave real ni una credencial de producción.
+
+Continúa con:
+
+```bash
 docker compose up -d db
 python scripts/generate_data.py
 python -m scripts.load_data
 uvicorn app.main:app --reload
 ```
 
-`DATABASE_URL` está incluida en `.env.example` para conectar con el PostgreSQL local de Docker. Usa credenciales locales de desarrollo definidas en `docker-compose.yml`; no es una clave real ni una credencial de producción.
+La aplicación carga `.env` automáticamente mediante `python-dotenv`. Si quieres que la variable también aparezca en la terminal al ejecutar `echo $DATABASE_URL`, puedes cargarla manualmente:
+
+```bash
+set -a
+source .env
+set +a
+```
+
+En VS Code, el aviso sobre `python.terminal.useEnvFile` solo afecta a la inyección de variables en la terminal; no impide que la aplicación lea `.env`.
+
+Si PostgreSQL informa de que no existe `orders_user` porque Docker está reutilizando un volumen antiguo, recrea únicamente el volumen local del proyecto:
+
+```bash
+docker compose down -v
+docker compose up -d db
+python -m scripts.load_data
+```
+
+`docker compose down -v` elimina los datos persistidos del contenedor local.
 
 La API queda disponible en `http://localhost:8000/docs`. Ejemplo:
 
@@ -42,7 +75,7 @@ Elegí PostgreSQL porque es una base relacional habitual en backend, permite vis
 
 ## Seguridad de la API
 
-El LLM solo propone SQL. Antes de ejecutar, la API exige una única sentencia `SELECT`, rechaza palabras peligrosas, comentarios y múltiples sentencias, y limita las referencias a las dos vistas permitidas. La clave nunca se guarda en el repositorio: se lee de `OPENAI_API_KEY`.
+El LLM de Fireworks solo propone SQL. Antes de ejecutar, la API exige una única sentencia `SELECT`, rechaza palabras peligrosas, comentarios y múltiples sentencias, y limita las referencias a las dos vistas permitidas. La clave nunca se guarda en el repositorio: se lee de `FIREWORKS_API_KEY`.
 
 ## Tests
 
@@ -56,7 +89,7 @@ Los tests cubren la limpieza, la validación de SQL y el endpoint con el LLM sim
 
 ## Uso de IA
 
-Usé IA como apoyo para proponer la estructura inicial, revisar casos de validación y sugerir tests. Acepté la generación del esqueleto y después corregí manualmente la limpieza, el control de tablas, los errores HTTP, la simulación del LLM y la documentación. La lógica de seguridad fue revisada explícitamente y no se confía en que el LLM genere consultas seguras por sí mismo.
+Usé Fireworks AI como proveedor del LLM y la IA como apoyo para proponer la estructura inicial, revisar casos de validación y sugerir tests. Acepté la generación del esqueleto y después corregí manualmente la limpieza, el control de tablas, los errores HTTP, la simulación del LLM y la documentación. La lógica de seguridad fue revisada explícitamente y no se confía en que el LLM genere consultas seguras por sí mismo.
 
 ## Qué haría con más tiempo
 
