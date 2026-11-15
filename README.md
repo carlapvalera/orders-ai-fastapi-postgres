@@ -64,6 +64,8 @@ curl -X POST http://localhost:8000/ask \
 
 `generate_data.py` crea 1.225 filas sintéticas deterministas: 1.200 pedidos base, 25 duplicados, 20 fechas inválidas y 20 importes vacíos. `load_data.py` convierte fechas e importes, normaliza texto, elimina duplicados y descarta filas irrecuperables. También conserva estadísticas de limpieza y escribe `data/orders_clean.csv`.
 
+La carga guarda esas estadísticas en la tabla PostgreSQL `order_quality_summary` para que el proceso sea auditable.
+
 ## SQL
 
 Se crean dos vistas:

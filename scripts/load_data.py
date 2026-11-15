@@ -14,6 +14,7 @@ def load_orders(input_path: str | Path = "data/orders_raw.csv") -> dict[str, int
         with connection.cursor() as cursor:
             cursor.execute("DROP VIEW IF EXISTS sales_by_month_country")
             cursor.execute("DROP VIEW IF EXISTS top_customers")
+            cursor.execute("DROP TABLE IF EXISTS order_quality_summary")
             cursor.execute("DROP TABLE IF EXISTS orders")
             cursor.execute("""CREATE TABLE orders (
                 order_date DATE NOT NULL, customer TEXT NOT NULL, country TEXT NOT NULL,
@@ -22,6 +23,14 @@ def load_orders(input_path: str | Path = "data/orders_raw.csv") -> dict[str, int
             cursor.executemany(
                 "INSERT INTO orders (order_date, customer, country, product, amount, status) VALUES (%s, %s, %s, %s, %s, %s)",
                 clean.itertuples(index=False, name=None),
+            )
+            cursor.execute("""CREATE TABLE order_quality_summary (
+                metric TEXT PRIMARY KEY,
+                value INTEGER NOT NULL
+            )""")
+            cursor.executemany(
+                "INSERT INTO order_quality_summary (metric, value) VALUES (%s, %s)",
+                [(metric, value) for metric, value in stats.items()],
             )
             cursor.execute(Path("sql/views.sql").read_text(encoding="utf-8"))
         connection.commit()
