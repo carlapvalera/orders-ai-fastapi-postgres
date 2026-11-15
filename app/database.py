@@ -1,13 +1,8 @@
-from pathlib import Path
+import os
 
-import duckdb
-
-
-DEFAULT_DATABASE_PATH = Path("data/orders.duckdb")
+import psycopg
 
 
-def get_connection(database_path: str | Path = DEFAULT_DATABASE_PATH) -> duckdb.DuckDBPyConnection:
-    path = Path(database_path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    return duckdb.connect(str(path))
+def get_connection() -> psycopg.Connection:
+    return psycopg.connect(os.environ["DATABASE_URL"])
 
