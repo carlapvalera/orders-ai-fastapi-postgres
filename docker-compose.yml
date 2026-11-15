@@ -17,10 +17,10 @@ services:
 
   api:
     build: .
+    env_file:
+      - .env
     environment:
       DATABASE_URL: postgresql://orders_user:orders_password@db:5432/orders_db
-      FIREWORKS_API_KEY: ${FIREWORKS_API_KEY:-}
-      FIREWORKS_MODEL: ${FIREWORKS_MODEL:-accounts/fireworks/models/glm-5p3-flash}
     depends_on:
       db:
         condition: service_healthy

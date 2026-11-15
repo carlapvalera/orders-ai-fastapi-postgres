@@ -2,6 +2,8 @@
 
 Prueba técnica de Python, datos e IA. Requiere Python 3.14 para el desarrollo local, aunque la ejecución recomendada usa Docker.
 
+Tiempo invertido: aproximadamente 2 horas de trabajo efectivo.
+
 ## Qué pedía la prueba
 
 1. Generar al menos 1.000 pedidos sintéticos con duplicados, fechas inválidas e importes vacíos; limpiarlos y cargarlos en una base SQL.
@@ -61,6 +63,16 @@ Ambos servicios deben aparecer como `running`; PostgreSQL debe aparecer como `he
 ```
 
 PostgreSQL queda publicado en el puerto `5433` del equipo y usa el puerto `5432` dentro de la red Docker. La API queda publicada en el puerto `8000`.
+
+La respuesta esperada para la pregunta de ejemplo tiene esta forma:
+
+```json
+{
+  "question": "¿Cuánto vendimos en España en marzo?",
+  "sql": "SELECT SUM(total_sales) ...",
+  "results": [{"total_sales": "24316.00"}]
+}
+```
 
 ### Comandos útiles de Docker
 
@@ -160,6 +172,16 @@ La API usa Fireworks AI mediante su endpoint compatible con OpenAI. El LLM solo 
 - registra errores sin escribir claves ni secretos en logs.
 
 La clave se lee de `FIREWORKS_API_KEY` y `.env` está excluido del repositorio.
+
+### Seguridad de secretos
+
+Nunca ejecutes `git add .env` ni pegues la salida de `docker compose config` en una incidencia o chat, porque algunos comandos de Docker pueden mostrar variables interpoladas. Si una clave aparece en una salida compartida, revócala inmediatamente desde Fireworks, crea una nueva y actualiza solo el `.env` local.
+
+Puedes revisar el repositorio sin imprimir secretos con:
+
+```bash
+git grep -n -E 'fw_|sk-' HEAD -- ':!data/orders_raw.csv'
+```
 
 ## Tests y calidad
 
