@@ -15,5 +15,17 @@ services:
     volumes:
       - orders_pgdata:/var/lib/postgresql/data
 
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://orders_user:orders_password@db:5432/orders_db
+      FIREWORKS_API_KEY: ${FIREWORKS_API_KEY:-}
+      FIREWORKS_MODEL: ${FIREWORKS_MODEL:-accounts/fireworks/models/glm-5p3-flash}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
 volumes:
   orders_pgdata:
