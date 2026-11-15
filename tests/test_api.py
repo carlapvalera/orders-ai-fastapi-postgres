@@ -39,3 +39,17 @@ def test_ask_endpoint_executes_mocked_llm_query():
     assert response.status_code == 200
     assert response.json()["results"][0]["country"] == "Spain"
 
+
+def test_ask_endpoint_returns_clear_error_when_llm_fails():
+    with patch("app.main.question_to_sql", side_effect=RuntimeError("provider unavailable")):
+        response = TestClient(app).post("/ask", json={"question": "total de ventas"})
+    assert response.status_code == 502
+    assert "LLM error" in response.json()["detail"]
+
+
+def test_ask_endpoint_rejects_invalid_generated_sql():
+    with patch("app.main.question_to_sql", return_value="DELETE FROM orders"):
+        response = TestClient(app).post("/ask", json={"question": "borra los pedidos"})
+    assert response.status_code == 422
+    assert "Invalid generated query" in response.json()["detail"]
+
