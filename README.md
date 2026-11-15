@@ -12,7 +12,18 @@ Prueba técnica de Python, datos e IA. Requiere Python 3.14 para el desarrollo l
 
 ## Arranque completo con Docker
 
-1. Copia `.env.example` a `.env` y añade tu clave de Fireworks:
+El revisor no necesita instalar Python, PostgreSQL ni las dependencias del proyecto. Solo necesita Docker Desktop, una cuenta/clave de Fireworks y Git.
+
+### Paso a paso desde un repositorio clonado
+
+1. Clona el repositorio y entra en su carpeta:
+
+```bash
+git clone https://github.com/carlapvalera/orders-ai-fastapi-postgres.git
+cd orders-ai-fastapi-postgres
+```
+
+2. Copia `.env.example` a `.env`:
 
 ```bash
 cp .env.example .env
@@ -25,13 +36,33 @@ FIREWORKS_MODEL=accounts/fireworks/models/glm-5p3-flash
 
 La URL de PostgreSQL del `.env.example` usa credenciales locales de Docker; no es una clave real ni una credencial de producción.
 
-2. Levanta PostgreSQL y la API, genera el CSV, limpia los datos, crea las vistas y arranca FastAPI:
+3. Levanta PostgreSQL y la API:
 
 ```bash
 docker compose up --build
 ```
 
-La API queda disponible en [http://localhost:8000/docs](http://localhost:8000/docs). PostgreSQL queda publicado en el puerto `5433` del equipo y usa el puerto `5432` dentro de la red Docker.
+El primer arranque puede tardar porque Docker construye la imagen e instala las dependencias. El contenedor de la API espera a que PostgreSQL esté saludable y después genera el CSV, limpia/carga los datos, crea las vistas y arranca FastAPI.
+
+4. Comprueba que los servicios están activos:
+
+```bash
+docker compose ps
+```
+
+Ambos servicios deben aparecer como `running`; PostgreSQL debe aparecer como `healthy`.
+
+5. Abre la documentación interactiva en [http://localhost:8000/docs](http://localhost:8000/docs), ejecuta `GET /health` y después `POST /ask` con:
+
+```json
+{
+  "question": "¿Cuánto vendimos en España en marzo?"
+}
+```
+
+PostgreSQL queda publicado en el puerto `5433` del equipo y usa el puerto `5432` dentro de la red Docker. La API queda publicada en el puerto `8000`.
+
+### Comandos útiles de Docker
 
 Para detener los servicios:
 
@@ -44,6 +75,15 @@ Para borrar también los datos persistidos de PostgreSQL:
 ```bash
 docker compose down -v
 ```
+
+Para ver logs:
+
+```bash
+docker compose logs -f api
+docker compose logs -f db
+```
+
+Si los puertos `8000` o `5433` ya están ocupados, detén el proceso que los usa o cambia el puerto izquierdo en `docker-compose.yml`. Si aparece un problema de inicialización de PostgreSQL en un entorno local anterior, ejecuta `docker compose down -v` y vuelve a ejecutar `docker compose up --build`.
 
 ## Desarrollo local sin Docker para la API
 
